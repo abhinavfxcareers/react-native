@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Image, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Idiyappam = () => {
+const Idiyappam = ({navigation}) => {
   const [inputText, setInputText] = useState('');
   const [submittedText, setSubmittedText] = useState('');
   const [showImage, setShowImage] = useState(false);
@@ -35,6 +35,15 @@ const Idiyappam = () => {
           source={{ uri: 'https://www.balancenutrition.in/images/receipe-img/1536766681_large.jpg' }} 
         />
       )}
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('dosa')}
+      
+      >
+
+        <Text style={styles.buttonText}>Go to Dosa</Text>
+      
+
+      </TouchableOpacity>
       
     </View>
   );
