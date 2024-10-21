@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, Button, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Rasam = () => {
+const Rasam = ({navigation}) => {
   const [cakeReady, setCakeReady] = useState(false);
 
   const createCake = () => {
@@ -12,7 +12,7 @@ const Rasam = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Rasam</Text>
       <Image
-        source={{ uri: 'https://i.ytimg.com/vi/315Ftf-kPgs/maxresdefault.jpg' }} // Replace with a valid image URL
+        source={{ uri: 'https://i.ytimg.com/vi/315Ftf-kPgs/maxresdefault.jpg' }} 
         style={styles.image}
       />
       <Text style={styles.description}>
@@ -25,6 +25,17 @@ const Rasam = () => {
       ) : (
         <Text style={styles.readyText}>🎉 Your Rasam is ready! Enjoy! 🎉</Text>
       )}
+
+      <View>
+                   
+      </View>
+                
+        <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('idiyappam')}
+          >
+            <Text style={styles.buttonText}>Go to Idiyappam</Text>
+          </TouchableOpacity>
     </View>
   );
 };
@@ -57,6 +68,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   button: {
+    marginVertical: 20,
     backgroundColor: '#ff7043',
     paddingVertical: 12,
     paddingHorizontal: 24,
