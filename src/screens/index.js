@@ -1,3 +1,2 @@
 export { default as MilkCake } from './MilkCake';
-
-export { default as Rassam } from './Rassam';
+export { default as Rasam } from './Rasam';

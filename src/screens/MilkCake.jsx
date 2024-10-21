@@ -24,9 +24,11 @@ const MilkCake = ({ navigation }) => {
         <>
           <Text style={styles.readyText}>🎉 Your Milk Cake is ready! Enjoy! 🎉</Text>
           {/* Sleek and Modern Button for Navigation */}
+          
+          
           <TouchableOpacity
             style={styles.button}
-            onPress={() => navigation.navigate('rassam')}
+            onPress={() => navigation.navigate('rasam')}
           >
             <Text style={styles.buttonText}>Go to Rasam</Text>
           </TouchableOpacity>
@@ -82,3 +84,6 @@ const styles = StyleSheet.create({
 });
 
 export default MilkCake;
+
+
+// Login@156F
