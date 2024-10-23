@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
 const Dosa = () => {
@@ -21,7 +21,9 @@ const Dosa = () => {
           },
         });
 
-        console.log('this is my response:', response.data);
+        console.log('Full Market Data Response:', response.data);
+
+        // Set market data state
         setMarketData(response.data);
       } catch (error) {
         console.error('Error fetching market trends:', error);
@@ -37,15 +39,25 @@ const Dosa = () => {
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Market Trends</Text>
       {loading ? (
-        <Text style={styles.loadingText}>Loading...</Text>
-      ) : marketData && marketData.data ? (
-        marketData.data.map((item, index) => (
-          <View key={index} style={styles.card}>
-            <Text style={styles.indexName}>{item?.index_name || 'N/A'}</Text>
-            <Text style={styles.indexValue}>Value: {item?.index_value || 'N/A'}</Text>
-            <Text style={styles.indexChange}>Change: {item?.change || 'N/A'}</Text>
-          </View>
-        ))
+        <Text style={styles.loadingText}>
+            <ActivityIndicator size="large" color="red" />
+
+        </Text>
+      ) : marketData && marketData.data && marketData.data.trends ? (
+        Array.isArray(marketData.data.trends) && marketData.data.trends.length > 0 ? (
+          marketData.data.trends.map((item, index) => (
+            <View key={index} style={styles.card}>
+              <Text style={styles.indexName}>{item?.name || 'N/A'}</Text>
+              <Text style={styles.indexValue}>Price: {item?.price || 'N/A'}</Text>
+              <Text style={styles.indexChange}>Change: {item?.change || 'N/A'}</Text>
+              <Text style={styles.indexChangePercent}>
+                Change Percent: {item?.change_percent ? `${(item.change_percent * 100).toFixed(2)}%` : 'N/A'}
+              </Text>
+            </View>
+          ))
+        ) : (
+          <Text style={styles.errorText}>No valid data available</Text>
+        )
       ) : (
         <Text style={styles.errorText}>No data available</Text>
       )}
@@ -99,6 +111,11 @@ const styles = StyleSheet.create({
   },
   indexChange: {
     fontSize: 16,
+    marginTop: 4,
+  },
+  indexChangePercent: {
+    fontSize: 16,
+    color: 'green', // Adjust color based on your preference
     marginTop: 4,
   },
 });
