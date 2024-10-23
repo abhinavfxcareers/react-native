@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     fontSize: 16,
     color: '#f1f1f1', // Light text color
+    maxWidth: '80%', // Limit maximum width
   },
   searchButton: {
     backgroundColor: '#3498db', // Vibrant blue for contrast
@@ -143,15 +144,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10,
+    flexWrap: 'wrap', // Allow wrapping
   },
   stockName: {
     fontSize: 18,
     fontWeight: '600',
     color: '#f1f1f1',
+    flex: 1, // Allow this to take available space
   },
   stockSymbol: {
     fontSize: 16,
     color: '#888',
+    flexShrink: 1, // Prevent overflow
+    overflow: 'hidden', // Hide overflowing text
+    textAlign: 'right', // Align to the right if necessary
   },
   stockPrice: {
     fontSize: 22,
