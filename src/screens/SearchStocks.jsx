@@ -82,39 +82,39 @@ const SearchStocks = () => {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: '#121212', // Dark theme background
+    backgroundColor: '#ffffff',
     paddingHorizontal: 20,
     paddingTop: 30,
   },
   header: {
-    fontSize: 26,
+    fontSize: 30,
     fontWeight: 'bold',
-    color: '#f1f1f1', // Light font for dark theme
+    color: '#2c3e50',
     textAlign: 'center',
-    marginBottom: 30,
+    marginBottom: 40,
   },
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 20,
-    borderRadius: 10,
+    borderRadius: 30,
     overflow: 'hidden',
-    backgroundColor: '#1c1c1c', // Darker search bar background
-    elevation: 4, // Subtle shadow for depth
+    backgroundColor: '#ecf0f1',
+    elevation: 6,
   },
   input: {
     flex: 1,
-    paddingVertical: 12,
-    paddingHorizontal: 15,
-    fontSize: 16,
-    color: '#f1f1f1', // Light text color
-    maxWidth: '80%', // Limit maximum width
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    fontSize: 18,
+    color: '#34495e',
   },
   searchButton: {
-    backgroundColor: '#3498db', // Vibrant blue for contrast
-    padding: 12,
+    backgroundColor: '#3498db',
+    padding: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 30,
   },
   loader: {
     marginVertical: 20,
@@ -123,46 +123,44 @@ const styles = StyleSheet.create({
     color: '#e74c3c',
     textAlign: 'center',
     marginBottom: 20,
+    fontSize: 16,
   },
   results: {
     marginTop: 20,
   },
   stockCard: {
-    backgroundColor: '#1e1e1e', // Dark card background
+    backgroundColor: '#ffffff',
     padding: 20,
     borderRadius: 15,
-    marginBottom: 15,
-    shadowColor: '#000', // Soft shadows for card depth
+    marginBottom: 20,
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.2,
     shadowRadius: 8,
-    elevation: 8,
-    width: width * 0.9, // Responsive width to fit on various screen sizes
+    elevation: 5,
+    width: width * 0.9,
     alignSelf: 'center',
   },
   stockHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10,
-    flexWrap: 'wrap', // Allow wrapping
   },
   stockName: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '600',
-    color: '#f1f1f1',
-    flex: 1, // Allow this to take available space
+    color: '#2c3e50',
+    flex: 1,
   },
   stockSymbol: {
-    fontSize: 16,
-    color: '#888',
-    flexShrink: 1, // Prevent overflow
-    overflow: 'hidden', // Hide overflowing text
-    textAlign: 'right', // Align to the right if necessary
+    fontSize: 18,
+    color: '#7f8c8d',
+    textAlign: 'right',
   },
   stockPrice: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#2ecc71', // Green for price
+    color: '#27ae60',
     marginBottom: 8,
   },
   stockChange: {
@@ -170,19 +168,19 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   positiveChange: {
-    color: '#2ecc71', // Green for positive change
+    color: '#27ae60',
   },
   negativeChange: {
-    color: '#e74c3c', // Red for negative change
+    color: '#e74c3c',
   },
   divider: {
     height: 1,
-    backgroundColor: '#2c2c2c', // Subtle divider between sections
+    backgroundColor: '#bdc3c7',
     marginVertical: 10,
   },
   stockDetails: {
     fontSize: 14,
-    color: '#888',
+    color: '#34495e',
   },
 });
 
