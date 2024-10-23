@@ -13,7 +13,7 @@ const App = () => {
         <Stack.Screen name="rasam" component={Rasam} />
         <Stack.Screen name="idiyappam" component={Idiyappam} />
         <Stack.Screen name = "dosa" component = {Dosa} />
-        <Stack.Screen name = "searchStocks" component={SearchStocks}/>
+        <Stack.Screen name = "Search Stocks" component={SearchStocks}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
