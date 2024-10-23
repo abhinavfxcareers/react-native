@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Idiyappam, MilkCake, Rasam, Dosa } from './src/screens';
+import { Idiyappam, MilkCake, Rasam, Dosa, SearchStocks } from './src/screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +13,7 @@ const App = () => {
         <Stack.Screen name="rasam" component={Rasam} />
         <Stack.Screen name="idiyappam" component={Idiyappam} />
         <Stack.Screen name = "dosa" component = {Dosa} />
+        <Stack.Screen name = "searchStocks" component={SearchStocks}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

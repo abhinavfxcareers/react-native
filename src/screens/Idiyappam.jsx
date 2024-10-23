@@ -22,13 +22,7 @@ const Idiyappam = ({navigation}) => {
         value={inputText}
         onChangeText={setInputText}
       />
-      
-
-
-      {/* <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigation.navigate('idiyappam')}
-          > */}
+    
       <Button style={styles.submitBtn} title="Submit" onPress={handlePress} />
       
 
@@ -46,8 +40,14 @@ const Idiyappam = ({navigation}) => {
       >
 
         <Text style={styles.buttonText}>Go to Dosa</Text>
+        
       
 
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('searchStocks')}>
+
+        <Text style={styles.buttonText}>Go to Search Stocks</Text>
       </TouchableOpacity>
       
     </View>
