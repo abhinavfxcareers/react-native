@@ -24,7 +24,12 @@ const Idiyappam = ({navigation}) => {
       />
       
 
-      <Button title="Submit" onPress={handlePress} />
+
+      {/* <TouchableOpacity
+            style={styles.button}
+            onPress={() => navigation.navigate('idiyappam')}
+          > */}
+      <Button style={styles.submitBtn} title="Submit" onPress={handlePress} />
       
 
       {submittedText ? <Text style={styles.resultText}>You entered: {submittedText}</Text> : null}
@@ -62,6 +67,20 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 20,
+    submitBtn: {
+      marginVertical: 20,
+      backgroundColor: '#ff7043',
+      paddingVertical: 12,
+      paddingHorizontal: 24,
+      borderRadius: 24,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 3 },
+      shadowOpacity: 0.2,
+      shadowRadius: 4,
+      elevation: 6,
+      color: '#fff',  
+      fontWeight:"bold"
+    }
   },
   input: {
     width: '100%',
@@ -83,6 +102,37 @@ const styles = StyleSheet.create({
     marginTop: 20,
     borderRadius: 10,
   },
+  buttonText:{
+    marginVertical: 20,
+    backgroundColor: '#ff7043',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 24,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 6,
+    color: '#fff',  
+    fontWeight:"bold"
+  },
+
+  submitBtn:{
+    marginVertical: 20,
+    backgroundColor: '#ff7043',
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 24,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 6,
+    color: '#fff',  
+    fontWeight:"bold"
+    
+  }
+
 });
 
 export default Idiyappam;
