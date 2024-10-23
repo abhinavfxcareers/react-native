@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: '#ffffff',
-    paddingHorizontal: 20,
+    paddingHorizontal: 0,
     paddingTop: 30,
   },
   header: {
@@ -106,6 +106,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: '#ecf0f1',
     elevation: 6,
+    width: width * 0.9,
+    alignSelf: 'center',
   },
   input: {
     flex: 1,
@@ -145,6 +147,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     width: width * 0.9,
     alignSelf: 'center',
+    marginTop: 1,
   },
   stockHeader: {
     flexDirection: 'row',
