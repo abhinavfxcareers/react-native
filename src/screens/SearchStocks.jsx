@@ -58,23 +58,28 @@ const SearchStocks = () => {
       {loading && <ActivityIndicator size="large" color="#3498db" style={styles.loader} />}
       {error && <Text style={styles.errorText}>{error}</Text>}
 
-      <ScrollView style={styles.results}>
-        {stockData && stockData.length > 0 && stockData.map((stock, index) => (
-          <View key={index} style={styles.stockCard}>
-            <View style={styles.stockHeader}>
-              <Text style={styles.stockName}>{stock.name}</Text>
-              <Text style={styles.stockSymbol}>({stock.symbol})</Text>
-            </View>
-            <Text style={styles.stockPrice}>${stock.price}</Text>
-            <Text style={[styles.stockChange, stock.change < 0 ? styles.negativeChange : styles.positiveChange]}>
-              {stock.change} ({stock.change_percent}%)
-            </Text>
-            <View style={styles.divider}></View>
-            <Text style={styles.stockDetails}>Prev Close: ${stock.previous_close}</Text>
-            <Text style={styles.stockDetails}>Exchange: {stock.exchange}</Text>
-          </View>
-        ))}
-      </ScrollView>
+      <ScrollView 
+  style={styles.results} 
+  showsVerticalScrollIndicator={false} 
+  showsHorizontalScrollIndicator={false}
+>
+  {stockData && stockData.length > 0 && stockData.map((stock, index) => (
+    <View key={index} style={styles.stockCard}>
+      <View style={styles.stockHeader}>
+        <Text style={styles.stockName}>{stock.name}</Text>
+        <Text style={styles.stockSymbol}>({stock.symbol})</Text>
+      </View>
+      <Text style={styles.stockPrice}>${stock.price}</Text>
+      <Text style={[styles.stockChange, stock.change < 0 ? styles.negativeChange : styles.positiveChange]}>
+        {stock.change} ({stock.change_percent}%)
+      </Text>
+      <View style={styles.divider}></View>
+      <Text style={styles.stockDetails}>Prev Close: ${stock.previous_close}</Text>
+      <Text style={styles.stockDetails}>Exchange: {stock.exchange}</Text>
+    </View>
+  ))}
+</ScrollView>
+
     </View>
   );
 };
