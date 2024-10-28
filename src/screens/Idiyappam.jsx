@@ -35,18 +35,16 @@ const Idiyappam = ({navigation}) => {
         />
       )}
 
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('dosa')}
-      
-      >
-
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('dosa')}>
         <Text style={styles.buttonText}>Go to Dosa</Text>
-        
-      
-
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Search Stocks')}>
         <Text style={styles.buttonText}>Go to Search Stocks</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Stock News')}>
+        <Text style={styles.buttonText}>Stocks News</Text>
       </TouchableOpacity>
       
     </View>
