@@ -16,7 +16,7 @@ const StockNews = () => {
             params: { symbol: 'AAPL:NASDAQ', language: 'en' },
             headers: {
               'x-rapidapi-host': 'real-time-finance-data.p.rapidapi.com',
-              'x-rapidapi-key': '9f62ed7842msh20390c64db2298dp1dbbf5jsn945b8e42b7ef',
+              'x-rapidapi-key': '4a2cd54b59msh0925b9d277dbb70p15ff13jsn52963ca5ddba',
             },
           }
         );
