@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet, FlatList, Image } from 'react-native';
+import { View, Text, ActivityIndicator, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 
-const StockNews = () => {
+const StockNews = ({ navigation }) => {
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -54,9 +54,9 @@ const StockNews = () => {
             <Image source={{ uri: item.article_photo_url }} style={styles.image} />
             <Text style={styles.source}>Source: {item.source}</Text>
             <Text style={styles.postTime}>Published on: {item.post_time_utc}</Text>
-            <Text style={styles.link} onPress={() => Linking.openURL(item.article_url)}>
-              Read more
-            </Text>
+            <TouchableOpacity onPress={() => navigation.navigate('WebViewScreen', { url: item.article_url })}>
+              <Text style={styles.link}>Read more</Text>
+            </TouchableOpacity>
           </View>
         )}
       />
