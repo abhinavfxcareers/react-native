@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ActivityIndicator, StyleSheet, FlatList } from 'react-native';
+import { View, Text, ActivityIndicator, StyleSheet, FlatList, Image } from 'react-native';
 import axios from 'axios';
 
 const StockNews = () => {
@@ -20,17 +20,16 @@ const StockNews = () => {
             },
           }
         );
-        setNewsData(response.data.data.news);  // Adjusting to access nested 'news' array
+        setNewsData(response.data.data.news); // Accessing nested 'news' array correctly
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
     };
-  
+
     fetchStockNews();
   }, []);
-  
 
   if (loading) {
     return <ActivityIndicator style={styles.loader} size="large" color="#0000ff" />;
@@ -48,11 +47,16 @@ const StockNews = () => {
     <View style={styles.container}>
       <FlatList
         data={newsData}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={({ item }) => (
           <View style={styles.newsItem}>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.description}>{item.description}</Text>
+            <Text style={styles.title}>{item.article_title}</Text>
+            <Image source={{ uri: item.article_photo_url }} style={styles.image} />
+            <Text style={styles.source}>Source: {item.source}</Text>
+            <Text style={styles.postTime}>Published on: {item.post_time_utc}</Text>
+            <Text style={styles.link} onPress={() => Linking.openURL(item.article_url)}>
+              Read more
+            </Text>
           </View>
         )}
       />
@@ -91,10 +95,25 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  description: {
+  source: {
     marginTop: 5,
     fontSize: 14,
     color: '#555',
+  },
+  postTime: {
+    fontSize: 12,
+    color: '#777',
+  },
+  link: {
+    marginTop: 10,
+    color: '#1e90ff',
+    fontSize: 14,
+  },
+  image: {
+    height: 150,
+    width: '100%',
+    marginTop: 10,
+    borderRadius: 5,
   },
 });
 
